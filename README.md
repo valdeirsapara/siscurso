@@ -1,4 +1,4 @@
-# Projeto de Faculdade - Programação Orientada a Objetos
+# Sistema de Gerenciamento de Plataforma de Cursos Online
 
 Este projeto foi desenvolvido como parte das atividades acadêmicas da faculdade, com foco em conceitos de **Programação Orientada a Objetos** utilizando o framework Django.
 
