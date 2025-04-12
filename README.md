@@ -11,10 +11,9 @@ Siga os passos abaixo para configurar e executar o projeto em um ambiente de des
 Clone o repositório do projeto para sua máquina local utilizando o comando:
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone https://github.com/valdeirsapara/siscursor.git
 ```
 
-Substitua `<URL_DO_REPOSITORIO>` pela URL do repositório Git.
 
 ### 2. Copiar o arquivo `.env.example` para `.env`
 
