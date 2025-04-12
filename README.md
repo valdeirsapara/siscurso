@@ -11,7 +11,7 @@ Siga os passos abaixo para configurar e executar o projeto em um ambiente de des
 Clone o repositório do projeto para sua máquina local utilizando o comando:
 
 ```bash
-git clone https://github.com/valdeirsapara/siscursor.git
+git clone https://github.com/valdeirsapara/siscurso.git
 ```
 
 
