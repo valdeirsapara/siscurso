@@ -1,0 +1,225 @@
+html, body {
+  height: 100%;
+}
+
+body {
+    font-family: 'Fredoka One', cursive;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f9fc;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.nav {
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav .logo {
+
+    font-size: 1.5rem;
+    color: #0d47a1;
+}
+
+.nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.hero {
+    display: flex;
+    border-radius: 16px;           
+    padding: 30px;                 
+    margin: 40px auto;               
+    width: 90%;                      
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    align-items: center;
+    padding: 3rem 2rem;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #c7eef7, #ffffff, #ffffff);
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-text .bold {
+    color: #0d47a1;
+    text-shadow:
+    -2px -2px 0 white,
+    2px -2px 0 white,
+    -2px 2px 0 white,
+    2px 2px 0 white;
+}
+
+.hero-text .highlight {
+    color: #00bcd4;
+    text-shadow:
+    -2px -2px 0 white,
+    2px -2px 0 white,
+    -2px 2px 0 white,
+    2px 2px 0 white;
+}
+
+.hero-text p {
+    color: #555;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    background-color: #00bcd4;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+
+}
+
+.imagem-ajustada {
+    width: 700px;
+    height: auto;
+  }
+
+.site-footer {
+  background-color:#0d47a1;
+  color: #f0f0f0;
+  padding: 40px 20px;
+  margin-top: 60px;
+}
+
+.content-wrap {
+  flex: 1; 
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}  
+
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.container h2 {
+  text-align: center;
+  color: #0d47a1;
+  margin-bottom: 20px;
+}
+
+form input, form select, form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: 'Fredoka One', cursive;
+}
+
+form label {
+  display: block;
+  margin-bottom: 6px;
+  color: #0d47a1;
+}
+
+button, .btn-submit {
+  background-color: #00bcd4;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover, .btn-submit:hover {
+  background-color: #008ba3;
+}
+
+.course-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.login-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f9fc;
+  padding: 0 1rem; /* Para evitar corte em telas pequenas */
+}
+
+.login-box {
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+  color: #0d47a1;
+  font-size: 2rem;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #e6f0ff;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.login-box button {
+  background-color: #00bcd4;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.login-box button:hover {
+  background-color: #009cb5;
+}
