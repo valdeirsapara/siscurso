@@ -16,7 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from curso.views import listar_cursos, detalhe_curso
+from core.views import home
+from django.contrib.auth.views import LoginView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls), 
+    path('', home, name='home'),
+    path('cursos/', listar_cursos, name='lista_cursos'),
+    path('cursos/<int:curso_id>/', detalhe_curso, name='detalhe_curso'),
+    path('login/', LoginView.as_view(template_name='usuarios/login.html'), name='login'),
+    
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])

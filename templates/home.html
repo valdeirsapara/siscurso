@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Início{% endblock %}
+
+{% block content %}
+ <section class="hero">
+        <div class="hero-text">
+            <h1><span class="bold">Cursos</span> <span class="highlight">Online</span></h1>
+            <p>Mais de 100 cursos online para potencializar a sua formação academica! Explore os cursos disponíveis e comece a aprender hoje mesmo.</p>
+            <br>
+            <a href="{% url 'lista_cursos' %}" class="btn">Saiba Mais</a>
+        </div>
+        <div class="hero-image">
+            <img src="{% static 'img/online_training.jpg' %}" class="imagem-ajustada" alt="Online Training">
+        </div>
+    </section>
+
+{% endblock %}
