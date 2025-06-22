@@ -16,7 +16,14 @@
             <nav>
                 <a href="{% url 'home' %}">Home</a>
                 <a href="{% url 'lista_cursos' %}">Cursos</a>
+                {% if not request.user.is_authenticated %}
                 <a href="{% url 'login' %}">Faça login</a>
+                {% else %}
+                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sair</a>
+                <form id="logout-form" method="post" action="{% url 'logout' %}" style="display: none;">
+                    {% csrf_token %}
+                </form>
+                {% endif %}
             </nav>
         </header>
 

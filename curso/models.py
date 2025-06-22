@@ -36,3 +36,19 @@ class Gratuito(Curso):
 
 class Pago(Curso):
     price = models.FloatField(default=0.0)
+
+
+class Video(AbstractMixin, models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField(blank=True)
+    url = models.URLField()
+    curso = models.ForeignKey(Curso, on_delete=models.CASCADE, related_name='videos')
+    ordem = models.PositiveIntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    def __str__(self) -> str:
+        return f"{self.title} | {self.curso.name}"
+    
+    class Meta:
+        ordering = ['ordem']

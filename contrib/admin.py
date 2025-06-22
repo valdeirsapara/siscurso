@@ -12,17 +12,6 @@ class ProfessorInline(admin.StackedInline):
     can_delete = False
     verbose_name_plural = 'Professor'
     fk_name = 'user'
-    readonly_fields = ['cursos_ministrados']
-
-    def cursos_ministrados(self, obj):
-        if not obj or not obj.pk:
-            return "Salve o usuário primeiro"
-        cursos = obj.cursos.all()
-        if not cursos.exists():
-            return "Nenhum curso ministrado"
-        return format_html_join('\n', "<li>{}</li>", ((curso.name,) for curso in cursos))
-    cursos_ministrados.short_description = "Cursos Ministrados"
-
 
 
 
@@ -31,32 +20,9 @@ class AlunoInline(admin.StackedInline):
     can_delete = False
     verbose_name_plural = 'Aluno'
     fk_name = 'user'
-    readonly_fields = ['cursos_inscritos']
-
-    def cursos_inscritos(self, obj):
-        if hasattr(obj,'aluno'):
-            cursos = obj.aluno.cursos.all()
-            if cursos.exists():
-                return format_html_join(
-                    '\n', '<li>{}</li>',((curso.name,) for curso in cursos)
-                )
-            return "Nenhum curso inscrito"
-
-        return "User não é Aluno"
-
 
 class CustomUserAdmin(UserAdmin):
     inlines = [ProfessorInline, AlunoInline]
-
-    form = CustomUserCreationForm
-
-    add_form = CustomUserCreationForm
-    add_fieldsets = (
-        (None, {
-            'classes': ('wide',),
-            'fields': ('username', 'email', 'password1', 'password2',),
-        }),
-    )
     
     def get_inline_instances(self, request, obj=None):
         if not obj:

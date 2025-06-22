@@ -18,7 +18,8 @@ from django.contrib import admin
 from django.urls import path
 from curso.views import listar_cursos, detalhe_curso
 from core.views import home
-from django.contrib.auth.views import LoginView
+from contrib.views import login_view
+from django.contrib.auth.views import LogoutView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -27,7 +28,8 @@ urlpatterns = [
     path('', home, name='home'),
     path('cursos/', listar_cursos, name='lista_cursos'),
     path('cursos/<int:curso_id>/', detalhe_curso, name='detalhe_curso'),
-    path('login/', LoginView.as_view(template_name='usuarios/login.html'), name='login'),
+    path('login/', login_view, name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
     
 ]
 
