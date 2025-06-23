@@ -1,0 +1,18 @@
+{% if carrinho.cursos.all %}
+    <ul class="list-group mb-4">
+        {% for curso in carrinho.cursos.all %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ curso.nome }}
+                <span class="badge bg-primary rounded-pill">
+                    R$ {{ curso.preco|floatformat:2 }}
+                </span>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div class="text-end">
+        <strong>Total:</strong> R$ {{ total|floatformat:2 }}
+    </div>
+{% else %}
+    <p>Seu carrinho está vazio.</p>
+{% endif %}

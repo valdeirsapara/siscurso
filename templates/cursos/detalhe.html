@@ -43,12 +43,10 @@
         </div>
 
         <!-- Botões -->
-        <div style="margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap;">
-            <a href="#" class="btn">Adicionar ao carrinho</a>
-            {% if request.user == curso.professor.usuario or request.user.is_superuser %}
-            <a href="{% url 'editar_curso' curso.id %}" class="btn btn-outline">Editar Curso</a>
-            {% endif %}
-        </div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn">Adicionar ao carrinho</button>
+        </form>
 
     </div>
 </div>
