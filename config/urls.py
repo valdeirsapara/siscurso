@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from curso.views import listar_cursos, detalhe_curso
 from core.views import home
-from contrib.views import login_view
+from contrib.views import login_view, create_user_view
 from django.contrib.auth.views import LogoutView
 from django.conf import settings
 from django.conf.urls.static import static
@@ -32,6 +32,7 @@ urlpatterns = [
     path('cursos/novo/', curso_views.cadastrar_curso, name='cadastrar_curso'),
     path('cursos/<int:curso_id>/editar/', curso_views.editar_curso, name='editar_curso'),
     path('login/', login_view, name='login'),
+    path('register/', create_user_view, name='register'),
     path('logout/', LogoutView.as_view(), name='logout'),
     
 ]
