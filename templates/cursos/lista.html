@@ -1,15 +1,29 @@
 {% extends 'base.html' %}
-{% block title %}Cursos{% endblock %}
+
+{% block title %}Cursos Disponíveis{% endblock %}
 
 {% block content %}
-<div class="container">
-  <h2>Cursos Disponíveis</h2>
-  {% for curso in cursos %}
-    <div class="course-card">
-      <strong>{{ curso.nome }}</strong><br>
-      Professor: {{ curso.professor }}<br>
-      <a href="{% url 'detalhe_curso' curso.id %}" class="btn">Ver detalhes</a>
+<div class="container" style="max-width: 900px; margin: 40px auto;">
+    <h2 style="color: #153C84; text-align: center; font-size: 24px; margin-bottom: 30px;">Cursos Disponíveis</h2>
+
+    {% for curso in cursos %}
+    <div style="border: 1px solid #ddd; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); background-color: #fdfdfd;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+            <div>
+                <p style="margin: 0; font-weight: 600; font-size: 16px;">{{ curso.name }}</p>
+                <small style="color: #666;">Professor: {{ curso.professor.name }}</small>
+            </div>
+            <a href="{% url 'detalhe_curso' curso.id %}" class="btn" style="margin-top: 10px;">Ver detalhes</a>
+        </div>
     </div>
-  {% endfor %}
+    {% empty %}
+    <p style="text-align: center;">Nenhum curso disponível no momento.</p>
+    {% endfor %}
+
+    {% if request.user.is_authenticated and request.user.professor %}
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="{% url 'cadastrar_curso' %}" class="btn">Cadastrar Curso</a>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}

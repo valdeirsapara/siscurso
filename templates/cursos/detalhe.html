@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalhes do Curso{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width: 900px; margin: 40px auto;">
+    <h2 style="color: #153C84; text-align: center; font-size: 24px; margin-bottom: 30px;">
+        {{ curso.name }}
+    </h2>
+
+    <div style="border: 1px solid #ddd; border-radius: 12px; padding: 25px; background-color: #fff;">
+        
+        <!-- Descrição -->
+        <div style="margin-bottom: 25px;">
+            <h3 style="font-size: 18px; margin-bottom: 10px; color: #153C84; font-weight: bold;">📘 Descrição</h3>
+            <p style="font-size: 15px; color: #444; line-height: 1.6;">{{ curso.description }}</p>
+        </div>
+
+        <!-- Informações -->
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 20px;">
+            <div style="flex: 1; min-width: 200px; margin-right: 30px;">
+                <p style="margin-bottom: 8px; color: #333;"><strong style="color: #153C84;">Carga horária:</strong> {{ curso.duracao }} horas</p>
+                <p style="margin-bottom: 8px; color: #333;"><strong style="color: #153C84;">Preço:</strong> R$ {{ curso.preco }}</p>
+                <p style="margin-bottom: 8px; color: #333;"><strong style="color: #153C84;">Status:</strong> {{ curso.ativo|yesno:"Ativo,Inativo" }}</p>
+            </div>
+            <div style="flex: 1; min-width: 200px;">
+                <p style="margin-bottom: 8px; color: #333;"><strong style="color: #153C84;">Professor:</strong> {{ curso.professor.na'me }}</p>
+                <p style="margin-bottom: 8px; color: #333;"><strong style="color: #153C84;">Email:</strong> {{ curso.professor.email }}</p>
+            </div>
+        </div>
+
+        <hr style="margin: 25px 0;">
+
+        <!-- Conteúdo -->
+        <div>
+            <h3 style="font-size: 18px; margin-bottom: 10px; color: #153C84; font-weight: bold;">📚 Conteúdo do Curso</h3>
+            <ul style="padding-left: 20px; font-size: 15px; line-height: 1.6; color: #333;">
+                <li><strong>Módulo 1:</strong> Fundamentos</li>
+                <li><strong>Módulo 2:</strong> Conteúdo Intermediário</li>
+                <li><strong>Módulo 3:</strong> Projeto Prático</li>
+                <li><strong>Conclusão:</strong> Certificação</li>
+            </ul>
+        </div>
+
+        <!-- Botões -->
+        <div style="margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap;">
+            <a href="#" class="btn">Adicionar ao carrinho</a>
+            {% if request.user == curso.professor.usuario or request.user.is_superuser %}
+            <a href="{% url 'editar_curso' curso.id %}" class="btn btn-outline">Editar Curso</a>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

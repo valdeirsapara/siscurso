@@ -22,12 +22,15 @@ from contrib.views import login_view
 from django.contrib.auth.views import LogoutView
 from django.conf import settings
 from django.conf.urls.static import static
+from curso import views as curso_views
 
 urlpatterns = [
     path('admin/', admin.site.urls), 
     path('', home, name='home'),
-    path('cursos/', listar_cursos, name='lista_cursos'),
+    path('cursos/', listar_cursos, name='listar_cursos'),
     path('cursos/<int:curso_id>/', detalhe_curso, name='detalhe_curso'),
+    path('cursos/novo/', curso_views.cadastrar_curso, name='cadastrar_curso'),
+    path('cursos/<int:curso_id>/editar/', curso_views.editar_curso, name='editar_curso'),
     path('login/', login_view, name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     

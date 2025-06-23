@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="max-width: 600px; margin: 40px auto; padding: 2rem; background: white; border-radius: 20px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);">
+  <h2 style="text-align: center; font-size: 1.75rem; font-weight: bold; color: #1e3a8a; margin-bottom: 1.5rem;">
+    Cadastro de Curso
+  </h2>
+
+  <form method="post" style="display: flex; flex-direction: column; gap: 1.2rem;">
+    {% csrf_token %}
+
+    <div style="display: flex; flex-direction: column;">
+      <label for="{{ form.name.id_for_label }}" style="margin-bottom: 0.25rem;">Nome:</label>
+      {{ form.name }}
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label for="{{ form.description.id_for_label }}" style="margin-bottom: 0.25rem;">Descrição:</label>
+      {{ form.description }}
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label for="{{ form.duracao.id_for_label }}" style="margin-bottom: 0.25rem;">Duração (em horas):</label>
+      {{ form.duracao }}
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label for="{{ form.price.id_for_label }}" style="margin-bottom: 0.25rem;">Preço:</label>
+      {{ form.price }}
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label for="{{ form.professor.id_for_label }}" style="margin-bottom: 0.25rem;">Professor:</label>
+      {{ form.professor }}
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <label for="{{ form.ativo.id_for_label }}">Ativo:</label>
+      {{ form.ativo }}
+    </div>
+
+    <button type="submit" style="background: #0891b2; color: white; padding: 0.75rem; font-weight: bold; border-radius: 8px; border: none;">
+      Salvar Curso
+    </button>
+  </form>
+</div>
+{% endblock %}
+
