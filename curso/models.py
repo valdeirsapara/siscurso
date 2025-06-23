@@ -6,7 +6,6 @@ from polymorphic.models import PolymorphicModel
 
 # local 
 from core.models import AbstractMixin
-from contrib.models import Aluno, Professor
 
 
 # Create your models here.
@@ -15,8 +14,8 @@ class Curso(PolymorphicModel, AbstractMixin):
     description = models.TextField()
     duracao = models.PositiveIntegerField()  # duração em horas
     # modulos = models.ManyToManyField('Modulo', related_name='cursos')
-    alunos = models.ManyToManyField(Aluno, related_name="cursos", blank=True,)
-    professor = models.ForeignKey(Professor, on_delete=models.CASCADE, related_name="cursos",)
+    alunos = models.ManyToManyField("contrib.Aluno", related_name="cursos", blank=True,)
+    professor = models.ForeignKey("contrib.Professor", on_delete=models.CASCADE, related_name="cursos",)
     data_de_criação = models.DateTimeField(auto_now_add=True,)
     ativo = models.BooleanField(default=True) 
 
@@ -52,3 +51,4 @@ class Video(AbstractMixin, models.Model):
     
     class Meta:
         ordering = ['ordem']
+
