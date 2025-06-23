@@ -11,7 +11,7 @@
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
             <div>
                 <p style="margin: 0; font-weight: 600; font-size: 16px;">{{ curso.name }}</p>
-                <small style="color: #666;">Professor: {{ curso.professor.name }}</small>
+                <small style="color: #666;">Professor: {{ curso.professor.nome_completo}}</small>
             </div>
             <a href="{% url 'detalhe_curso' curso.id %}" class="btn" style="margin-top: 10px;">Ver detalhes</a>
         </div>

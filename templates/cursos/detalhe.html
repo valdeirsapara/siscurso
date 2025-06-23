@@ -24,8 +24,8 @@
                 <p style="margin-bottom: 8px; color: #333;"><strong style="color: #153C84;">Status:</strong> {{ curso.ativo|yesno:"Ativo,Inativo" }}</p>
             </div>
             <div style="flex: 1; min-width: 200px;">
-                <p style="margin-bottom: 8px; color: #333;"><strong style="color: #153C84;">Professor:</strong> {{ curso.professor.na'me }}</p>
-                <p style="margin-bottom: 8px; color: #333;"><strong style="color: #153C84;">Email:</strong> {{ curso.professor.email }}</p>
+                <p style="margin-bottom: 8px; color: #333;"><strong style="color: #153C84;">Professor:</strong> {{ curso.professor.nome_completo}}</p>
+                <p style="margin-bottom: 8px; color: #333;"><strong style="color: #153C84;">Email:</strong> {{ curso.professor.user.email }}</p>
             </div>
         </div>
 
