@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Curso
 
 def listar_cursos(request):
-    cursos = Curso.objects.all()
+    cursos = Curso.objects.filter(desativado_em__isnull=True)
     return render(request, 'cursos/lista.html', {'cursos': cursos})
 
 def detalhe_curso(request, curso_id):
